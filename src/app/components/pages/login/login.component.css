@@ -1,0 +1,24 @@
+.loginContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.register {
+    display: block;
+    cursor: pointer;
+}
+
+.register:hover {
+    color: blue;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}

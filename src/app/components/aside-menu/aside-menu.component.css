@@ -1,0 +1,67 @@
+.sidenav {
+    background: #10172a;
+    transition: all 0.5s ease;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    box-shadow: 0px 1px 4px #15223214;
+    position: fixed;
+}
+  
+.sidenav-nav {
+    list-style: none;
+    cursor: pointer;
+}
+
+.sidenav-nav-item {
+    transition: all 0.3s ease;
+}
+
+.sidenav-nav-item:hover {
+    background: rgba(0, 98, 255, 0.2);
+    border-left: 4px solid #2a6fdb;
+}
+
+.sidenav-nav-link {
+    height: 3rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.active {
+    background-color: rgba(0, 98, 255, 0.2);
+    border-left: 4px solid #2a6fdb;
+    color: #2a6fdb !important;
+}
+
+.sidenav-nav-link:hover {
+    color: #2a6fdb !important;
+}
+
+.sidenav-link-icon {
+    font-size: 22px;
+    width: 2rem;
+    min-width: 2rem;
+}
+  
+.cardMain {
+    margin-bottom: 20px;
+}
+  
+.cardFooter {
+    position: absolute;
+    bottom: 0px;
+}
+  
+.cardAvatar {
+    width: 75px;
+    height: 75px;
+    background: #57b8ff;
+}
+  
+.cardLogout {
+    height: 50px;
+    width: 100%;
+}
+  

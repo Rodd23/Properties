@@ -1,0 +1,63 @@
+<div class="loginContainer">
+    <div class="row">
+      <div class="col-6">
+        <img
+          class="w-100 img-login"
+          src="../../../../assets/imoveis01.jpg"
+          alt="Uma chave e uma casa"
+        />
+      </div>
+      <div class="col-6">
+        <div>
+          <div>
+            <h1 class="fw-bold">Seja bem-vindo(a)</h1>
+            <p>ao seu sistema para corretor de imóveis.</p>
+          </div>
+    
+          <div *ngIf="stage === 'login'; else RegisterUser">
+            <form class="p-4 p-md-5 border rounded-3 bg-light">
+              <h1 class="text-center">Login</h1>
+
+              <div class="form-floating">
+                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" />
+                <label for="inputEmail">E-mail</label>
+              </div>
+              <div class="form-floating mt-4">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" />
+                <label for="inputPassword">Senha</label>
+              </div>
+              <button class="btn btn-lg btn-success mt-5 w-100" type="submit" (click)="login()">Entrar</button>
+              <span class="register mt-2" (click)="handleStage('cadastro')"><a>Clique para se cadastrar</a></span>
+            </form>
+          </div>
+
+          <ng-template #RegisterUser>
+            <form class="p-4 p-md-5 border rounded-3 bg-light">
+              <h1 class="text-center">Cadastro</h1>
+
+              <div class="form-floating">
+                <input type="email" class="form-control" id="inputName" placeholder="Nome" />
+                <label for="inputEmail">Nome</label>
+              </div>
+              <div class="form-floating mt-4">
+                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" />
+                <label for="inputEmail">E-mail</label>
+              </div>
+              <div class="form-floating mt-4">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" />
+                <label for="inputPassword">Senha</label>
+              </div>
+              <div class="form-floating mt-4">
+                <input type="password" class="form-control" id="inputConfirmedPassword" placeholder="Confirmação de senha" />
+                <label for="inputConfirmedPassword">Confirmação de senha</label>
+              </div>
+              <button class="btn btn-lg btn-success mt-5 w-100" type="submit">Cadastrar</button>
+              <span class="register mt-2" (click)="handleStage('login')"><a>Clique para realizar o login</a></span>
+            </form>
+          </ng-template>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

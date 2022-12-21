@@ -1,0 +1,89 @@
+.boxDash {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cardDash {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.cardDash h2 {
+    color: #2a6fdb;
+}
+
+.dataProperties {
+    display: flex;
+    border-bottom: 1px solid #DCDCDC;
+    padding: 10px;
+}
+
+.amountProperties, .totalSales, .activeBusiness, .totalValue, .totalLocation, .totalInvoicing, .totalPrevision {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #10172a;
+}
+
+.amountProperties span {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.chartProperties, .chartInvoicing {
+    min-width: 350px;
+    width: 100%;
+}
+
+.listProperties {
+    margin-top: 10px;
+}
+
+.listProperties ul {
+    list-style: none;
+}
+
+.listProperties span {
+    width: 50px;
+    font-weight: 500;
+}
+
+.listProperties li {
+    display: flex;
+}
+
+.sales, .values, .invoicing {
+    display: flex;
+    gap: 20px;
+}
+
+.totalSales span, .activeBusiness span, .totalValue span, .totalLocation span, .totalInvoicing span, .totalPrevision span {
+    font-size: 18px;    
+    font-weight: 500;
+}
+
+.chartSales {
+    min-width: 350px;
+    width: 100%;
+    margin-top: 20px;
+}
+ 
+.values, .invoicing {
+    margin-top: 20px;
+}
+
+.totalValue {
+    color: #008080;
+    font-weight: bold;
+}
+
+.totalLocation {
+   color: #ff4500;
+   font-weight: bold;
+}
+
+

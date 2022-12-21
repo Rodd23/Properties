@@ -1,0 +1,60 @@
+<div class="sidenav">
+    <div 
+        class="mt-0 d-flex justity-content-center"
+        style="cursor: pointer"
+    >
+        <img src="../../../assets/logo.jpg" style="width: 100%" alt="logo"/>
+    </div>
+    <div class="mt-0">
+        <ul class="sidenav-nav ps-0">
+            <li class="sidenav-nav-item mb-2" *ngFor="let item of navItems">
+                <a
+                    class="sidenav-nav-link d-flex align-items-center"
+                    [routerLink]="[item.routeLink]"
+                    routerLinkActive="active"
+                >
+                    <i 
+                        class="sidenav-link-icon ps-3 mx-2"
+                        [class]="item.icon"
+                        aria-hidden="true"
+                    ></i>
+                    <span class="ms-3">
+                        {{ item.label }}
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer class="cardFooter w-100">
+        <!-- <div class="cardMain w-100 px-3 d-flex align-items-center">
+          <div
+            class="cardAvatar rounded-circle d-flex justify-content-center align-items-center"
+          >
+            <h2 class="text-white m-0">{{ getInitialName(user?.war_name) }}</h2>
+          </div>
+          <div class="text-white ms-2">
+            <h5 class="m-0">{{ getFirstMiddleName(user?.war_name) }}</h5>
+            <div *ngIf="user; else noUser">
+              <p class="fs-6 p-0 m-0 text-muted">
+                {{ user.roles[0].name === "admin" ? "Administrador" : "Atendente" }}
+              </p>
+            </div>
+            <ng-template #noUser> </ng-template>
+          </div>
+        </div> -->
+    
+        <div (click)="logout()" class="cardLogout d-flex align-items-center w-100">
+          <ul class="sidenav-nav ps-0 my-0 w-100">
+            <li class="sidenav-nav-item pb-2">
+              <a class="sidenav-nav-link d-flex align-items-center">
+                <i
+                  class="fa-solid fa-right-from-bracket fa-xl sidenav-link-icon ps-3 mx-2"
+                  aria-hidden="true"
+                ></i>
+                <span class="ms-3">Sair</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+</div>
