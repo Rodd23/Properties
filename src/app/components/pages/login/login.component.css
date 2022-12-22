@@ -19,6 +19,13 @@
     color: blue;
 }
 
+.validation-error p {
+    color: #DC3545;
+    margin-top: .4em;
+    border-left: 3px solid #DC3545;
+    padding-left: 0.2em;
+}
+
 ::ng-deep .mat-form-field-underline {
     display: none;
 }

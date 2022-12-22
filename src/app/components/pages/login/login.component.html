@@ -15,43 +15,66 @@
           </div>
     
           <div *ngIf="stage === 'login'; else RegisterUser">
-            <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <form (ngSubmit)="login()" [formGroup]="formLogin" #formDir="ngForm" class="p-4 p-md-5 border rounded-3 bg-light">
               <h1 class="text-center">Login</h1>
 
               <div class="form-floating">
-                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" />
+                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" formControlName="email" required />
                 <label for="inputEmail">E-mail</label>
               </div>
+              <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="email.errors?.['required']">O email é obrigatório.</p>
+              </div>
+
               <div class="form-floating mt-4">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" />
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" formControlName="password" required />
                 <label for="inputPassword">Senha</label>
               </div>
-              <button class="btn btn-lg btn-success mt-5 w-100" type="submit" (click)="login()">Entrar</button>
+              <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="password.errors?.['required']">A senha é obrigatório.</p>
+              </div>
+              <button class="btn btn-lg btn-primary mt-5 w-100" type="submit">Entrar</button>
               <span class="register mt-2" (click)="handleStage('cadastro')"><a>Clique para se cadastrar</a></span>
             </form>
           </div>
 
           <ng-template #RegisterUser>
-            <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <form (ngSubmit)="register()" [formGroup]="formRegister" #formDir="ngForm" class="p-4 p-md-5 border rounded-3 bg-light">
               <h1 class="text-center">Cadastro</h1>
 
               <div class="form-floating">
-                <input type="email" class="form-control" id="inputName" placeholder="Nome" />
+                <input type="email" class="form-control" id="inputName" placeholder="Nome" formControlName="nameregister" />
                 <label for="inputEmail">Nome</label>
               </div>
+              <div *ngIf="nameregister.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="nameregister.errors?.['required']">O nome é obrigatório.</p>
+              </div>
+
               <div class="form-floating mt-4">
-                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" />
+                <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" formControlName="emailregister"/>
                 <label for="inputEmail">E-mail</label>
               </div>
+              <div *ngIf="emailregister.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="emailregister.errors?.['required']">O email é obrigatório.</p>
+              </div>
+
               <div class="form-floating mt-4">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" />
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha" formControlName="passwordregister" />
                 <label for="inputPassword">Senha</label>
               </div>
+              <div *ngIf="passwordregister.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="passwordregister.errors?.['required']">A senha é obrigatório.</p>
+              </div>
+
               <div class="form-floating mt-4">
-                <input type="password" class="form-control" id="inputConfirmedPassword" placeholder="Confirmação de senha" />
+                <input type="password" class="form-control" id="inputConfirmedPassword" placeholder="Confirmação de senha"  formControlName="confirmedpasswordregister"/>
                 <label for="inputConfirmedPassword">Confirmação de senha</label>
               </div>
-              <button class="btn btn-lg btn-success mt-5 w-100" type="submit">Cadastrar</button>
+              <div *ngIf="confirmedpasswordregister.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="confirmedpasswordregister.errors?.['required']">A confirmação de senha é obrigatório.</p>
+              </div>
+
+              <button class="btn btn-lg btn-primary mt-5 w-100" type="submit">Cadastrar</button>
               <span class="register mt-2" (click)="handleStage('login')"><a>Clique para realizar o login</a></span>
             </form>
           </ng-template>
