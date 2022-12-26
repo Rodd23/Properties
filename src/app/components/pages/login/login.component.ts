@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   stage: string = "login"
+  hide: boolean = true;
   // email: string = 'rodrigo@email'
   // password: string = '123456'
 
@@ -57,6 +58,14 @@ export class LoginComponent implements OnInit {
     this.stage = value
   }
 
+  check() {
+    if(this.hide) {
+      this.hide = false
+    } else {
+      this.hide = true
+    }
+  }
+
   login() {
     if (this.formLogin.invalid) {
       return;
@@ -70,6 +79,8 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log("Registrou")
+    this.authService.register(this.formRegister.value.nameregister, this.formRegister.value.emailregister, this.formRegister.value.passwordregister, this.formRegister.value.confirmedpasswordregister);
+
+    this.stage = 'login'
   }
 }

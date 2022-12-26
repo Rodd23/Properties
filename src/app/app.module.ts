@@ -16,6 +16,7 @@ import { AsideMenuComponent } from './components/aside-menu/aside-menu.component
 import { DashhomeComponent } from './components/pages/dashboard/dashhome/dashhome.component';
 import { UsersComponent } from './components/pages/dashboard/users/users.component';
 import { PropertyComponent } from './components/pages/dashboard/property/property.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PropertyComponent } from './components/pages/dashboard/property/propert
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgToastModule,
     // FontAwesomeModule
   ],
   providers: [],

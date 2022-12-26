@@ -1,31 +1,24 @@
 <div class="container" style="height: 100vh">
         <div class="boxUser">
             <h1>Editar Usuário</h1>
-            <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <form (ngSubmit)="registerUser()" [formGroup]="formUser" #formDir="ngForm" class="p-4 p-md-5 border rounded-3 bg-light">
                 <div class="col-md-8 col-lg-12">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="Nome" />
+                        <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name" required />
                         <label for="name">Nome</label>
                     </div>
+                    <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+                        <p *ngIf="name.errors?.['required']">O nome é obrigatório.</p>
+                      </div>
+
                     <div class="form-floating mt-4">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" />
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" formControlName="email" required />
                         <label for="inputEmail">E-mail</label>
                     </div>
-                    <div class="form-floating mt-4">
-                        <input 
-                            class="form-control" 
-                            [type]="hide ? 'password' : 'text'"
-                            id="inputPassword" 
-                            placeholder="Senha" 
-                        />
-                        <label for="inputPassword">Senha</label>
+                    <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+                        <p *ngIf="email.errors?.['required']">O email é obrigatório.</p>
                     </div>
-                    <div class="form-check mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="password" (click)="check()" />
-                        <label class="form-check-label" for="password">
-                          Visualizar Senha
-                        </label>
-                      </div>
+
                     <button class="btn btn-primary mt-5" style="font-size: 18px;" type="submit">Atualizar</button>
                 </div>
             </form>

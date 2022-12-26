@@ -1,7 +1,7 @@
 <div class="container" style="height: 100vh">
     <div class="boxProperty">
         <h1>Cadastro do Imóvel</h1>
-        <form class="p-4 p-md-5 border rounded-3 bg-light">
+        <form (ngSubmit)="registerProperty()" [formGroup]="formProperty" #formDir="ngForm" class="p-4 p-md-5 border rounded-3 bg-light">
             <div class="col-md-8 col-lg-12">
                 <div class="col-12">
                     <div class="card mx-auto" style="width: 18rem">
@@ -11,25 +11,35 @@
                 </div>
 
                 <div class="form-floating mt-4">
-                    <input type="number" class="form-control" id="acquisition" placeholder="Valor de compra" />
+                    <input type="text" class="form-control" id="acquisition" placeholder="Valor de compra" formControlName="acquisition" required />
                     <label for="acquisition">Valor de compra</label>
+                </div>
+                <div *ngIf="acquisition.invalid && formDir.submitted" class="validation-error">
+                    <p *ngIf="acquisition.errors?.['required']">O valor da compra é obrigatório.</p>
                 </div>
 
                 <div class="form-floating mt-4">
-                    <input type="number" class="form-control" id="sale" placeholder="Valor de venda" />
-                    <label for="acquisition">Valor de venda</label>
+                    <input type="text" class="form-control" id="sale" placeholder="Valor de venda" formControlName="sale" required />
+                    <label for="sale">Valor de venda</label>
+                </div>
+                <div *ngIf="sale.invalid && formDir.submitted" class="validation-error">
+                    <p *ngIf="sale.errors?.['required']">O valor da venda é obrigatório.</p>
                 </div>
 
+
                 <div class="form-check mt-2">
-                    <input class="form-check-input" type="checkbox" value="" id="sold" />
+                    <input class="form-check-input" type="checkbox" (click)="check()" id="sold" />
                     <label class="form-check-label" for="sold">
                       Imóvel vendido
                     </label>
                 </div>
 
                 <div class="form-floating mt-4">
-                    <input type="text" disabled class="form-control" id="profit" value={{profit}} />
+                    <input type="text" class="form-control" id="profit" formControlName="profit" required />
                     <label for="profit">Percentual de lucro</label>
+                </div>
+                <div *ngIf="profit.invalid && formDir.submitted" class="validation-error">
+                    <p *ngIf="profit.errors?.['required']">O valor do percentual de lucro é obrigatório.</p>
                 </div>
     
                 <button class="btn btn-primary mt-5" style="font-size: 18px;" type="submit">Cadastrar</button>

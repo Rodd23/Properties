@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-aside-menu',
@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class AsideMenuComponent {
   @Input() navItems: any;
+  @Output() handlerLogout: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 
   logout() {
-    
+    this.handlerLogout.emit()
   }
 }

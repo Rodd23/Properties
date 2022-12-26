@@ -5,20 +5,28 @@ import { DashhomeComponent } from './components/pages/dashboard/dashhome/dashhom
 import { PropertyComponent } from './components/pages/dashboard/property/property.component';
 import { UsersComponent } from './components/pages/dashboard/users/users.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthorizedGuard } from './_guard/authorized.guard';
+import { LoginGuard } from './_guard/login.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthorizedGuard],
     children: [
       { path: 'home', component:  DashhomeComponent},
       { path: 'users', component: UsersComponent},
       { path: 'properties', component: PropertyComponent},
     ]
+  }, 
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
